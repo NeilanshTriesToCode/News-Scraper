@@ -27,6 +27,14 @@ pupeeteer
         const $ = cheerio.load(html);
         var content = $('.yr3B8d.KWQBje > .hI5pFf').children();
         console.log(content[4]['children'][0]['data']);      // print headline
+
+        /* TODO:
+           - Compare class name for every element, and check if it belongs to headline div
+           - if yes, print headline
+           - search for news link 
+        */
+       
+
        /* for(var i = 0; i < content.length; i++){
             console.log(content[i]);
         } */
