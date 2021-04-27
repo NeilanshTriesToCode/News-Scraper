@@ -42,7 +42,9 @@ pupeeteer
                 // if the element belongs to the class "JheGif nDgy9d", it's the element containing the news headline
                 if( news_info[j]['attribs']['class'].localeCompare('JheGif nDgy9d') == 0 ){  
                     console.log(news_info[j]['children'][0]['data']);  // print news headline
-                    //console.log('     Link: ' + news_links[j]['attribs']['href']);
+                    if( news_links[j]['name'].localeCompare('a') == 0){
+                        console.log('     Link: ' + news_links[j]['attribs']['href']);
+                    }           
                     console.log('\n');
                 }                
             }
