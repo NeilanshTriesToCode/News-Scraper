@@ -3,8 +3,8 @@ const request = require('request-promise');  // scraper for static websites
 const cheerio = require('cheerio');
 const pupeeteer = require('puppeteer');      // scraper for dynamic websites
 
-//var url = 'https://news.google.com/topstories?hl=en-IN&gl=IN&ceid=IN:en';   // search for news at google news
 var url = 'http://www.google.com';
+
 pupeeteer
     .launch({headless: false})
     .then((browser) => { return browser.newPage() })
@@ -25,20 +25,30 @@ pupeeteer
     .then(async (html) => {
         // work with html content to retrieve news headlines
         const $ = cheerio.load(html);
-        var content = $('.yr3B8d.KWQBje > .hI5pFf').children();
-        console.log(content[4]['children'][0]['data']);      // print headline
+        var news_items = [];
+        var for_headlines = $('.yr3B8d.KWQBje > .hI5pFf').children();  // object containing elements for news pic, headlines, etc.
+        var for_links = $('.nChh6e.DyOREb > div > .dbsr').children();  // object containing element for link and its children
+        // console.log(content[0]['attribs']['href']);
+        news_items.push(for_headlines);
+        news_items.push(for_links);
+       return news_items;  // returns array containing two objects containing html info about news cards (healdines and links)
+    })
+    .then(async (news_items) => {
+       var news_info = news_items[0];
+       var news_links = news_items[1];
 
-        /* TODO:
-           - Compare class name for every element, and check if it belongs to headline div
-           - if yes, print headline
-           - search for news link 
-        */
+      // for(var i = 0; i < news_links.length; i++){
+            for(var j = 0; j < news_info.length; j++){
+                // if the element belongs to the class "JheGif nDgy9d", it's the element containing the news headline
+                if( news_info[j]['attribs']['class'].localeCompare('JheGif nDgy9d') == 0 ){  
+                    console.log(news_info[j]['children'][0]['data']);  // print news headline
+                    //console.log('     Link: ' + news_links[j]['attribs']['href']);
+                    console.log('\n');
+                }                
+            }
+       // } 
        
 
-       /* for(var i = 0; i < content.length; i++){
-            console.log(content[i]);
-        } */
-        console.log('success');
     }) 
     .catch((err) => {
         console.log(err);
