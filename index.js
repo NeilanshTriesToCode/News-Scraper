@@ -13,7 +13,7 @@ pupeeteer
             await page.setViewport({ width: 1920, height: 1080 });   // open browser window to show puppeteer's actions
             // await page.focus('.gLFyf.gsfi');     // focus on the search bar
             await page.click('.gLFyf.gsfi');     // click on the search bar
-            await page.keyboard.type('fc barcelona news');      // search for the given term
+            await page.keyboard.type('basketball news');      // search for the given term
             await page.keyboard.press('Enter');   
             await page.waitFor(3000);   
             await page.click('.Q2MMlc');     
@@ -25,15 +25,11 @@ pupeeteer
     .then(async (html) => {
         // work with html content to retrieve news headlines
         const $ = cheerio.load(html);
-        var news_items = [];
-        var for_headlines = $('.yr3B8d.KWQBje > .hI5pFf').children();  // object containing elements for news pic, headlines, etc.
         var for_links = $('.nChh6e.DyOREb > div > .dbsr').children();  // object containing element for link and its children
-        // console.log(content[0]['attribs']['href']);
-        news_items.push(for_headlines);
-        news_items.push(for_links);
-       return news_items;  // returns array containing two objects containing html info about news cards (healdines and links)
+        //console.log(for_links.length);
+        return for_links;  // returns array containing two objects containing html info about news cards (healdines and links)
     })
-    .then(async (news_items) => {
+    .then(async (news_links) => {
         /* BASIC STRUCTURE OF A NEWS-CARD DOM:
          - Each news item is inside an HTML element called 'g-card'
          - Every content (news headline, news image, sub headline, date, etc.) is inside a link element, which is a child of 'g-card'
@@ -47,21 +43,21 @@ pupeeteer
            specified as key-value pairs inside the node/element object.
          - The 'children' key inside a node/element object has an array of that node/element children in the DOM tree.
         */
-       var news_info = news_items[0];
-       var news_links = news_items[1];
-       console.log(news_links[0]['children'][0]['children'][1]['children'][1]['children'][0]['data']);
-            /*for(var j = 0; j < news_links.length; j++){
-                // if the element belongs to the class "JheGif nDgy9d", it's the element containing the news headline
-                if( news_info[j]['attribs']['class'].localeCompare('JheGif nDgy9d') == 0 ){  
-                    console.log(news_info[j]['children'][0]['data']);  // print news headline
-                    if( news_links[j]['name'].localeCompare('a') == 0){
-                        console.log('     Link: ' + news_links[j]['attribs']['href']);
-                    }           
-                    console.log('\n');
-                }                
-            } */
-       
-
+        //console.log(news_links[0]['children'][0]['children'][1]['children'][1]['children'][0]['data']);
+        for(var i = 0; i < news_links.length; i++){
+            if( news_links[i]['name'].localeCompare('a') == 0){
+                var link = news_links[i]['attribs']['href'];
+                var news_items_container = news_links[i]['children'][0];
+                var news_text = news_items_container['children'][1];
+                var headline_container = news_text['children'][1];
+                var headline = headline_container['children'][0]['data'];
+    
+                console.log(headline);
+                console.log('     Link: ' + link);
+                console.log('\n'); 
+            }          
+        } 
+        console.log('success');
     }) 
     .catch((err) => {
         console.log(err);
