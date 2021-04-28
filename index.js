@@ -34,11 +34,23 @@ pupeeteer
        return news_items;  // returns array containing two objects containing html info about news cards (healdines and links)
     })
     .then(async (news_items) => {
+        /* BASIC STRUCTURE OF A NEWS-CARD DOM:
+         - Each news item is inside an HTML element called 'g-card'
+         - Every content (news headline, news image, sub headline, date, etc.) is inside a link element, which is a child of 'g-card'
+         - This function receives an object which contains the list of all the link elements inside all 'g-card's
+         - Each link element further has a child which is an element of class 'yr3B8d KWQBje'. This element contains 
+           all the news content as its children (headlines, image, sub-headline), which altogether are displayed as a single link.
+         - The element of class 'yr3B8d KWQBje' has 2 children, each containing a news element like image, headline, etc.
+         - We'll be focusing on the second child, which contains the news headline.
+         - This function receives an "object of objects" containing a list of all the link elements/nodes. 
+         - Every node/element is represented as an object, with its attributes, children, parent node, children nodes 
+           specified as key-value pairs inside the node/element object.
+         - The 'children' key inside a node/element object has an array of that node/element children in the DOM tree.
+        */
        var news_info = news_items[0];
        var news_links = news_items[1];
-
-      // for(var i = 0; i < news_links.length; i++){
-            for(var j = 0; j < news_info.length; j++){
+       console.log(news_links[0]['children'][0]['children'][1]['children'][1]['children'][0]['data']);
+            /*for(var j = 0; j < news_links.length; j++){
                 // if the element belongs to the class "JheGif nDgy9d", it's the element containing the news headline
                 if( news_info[j]['attribs']['class'].localeCompare('JheGif nDgy9d') == 0 ){  
                     console.log(news_info[j]['children'][0]['data']);  // print news headline
@@ -47,8 +59,7 @@ pupeeteer
                     }           
                     console.log('\n');
                 }                
-            }
-       // } 
+            } */
        
 
     }) 
