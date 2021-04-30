@@ -13,5 +13,10 @@
     "puppeteer": "^8.0.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.0",
+    "babelify": "^10.0.0"
   }
 }
