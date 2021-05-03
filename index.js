@@ -17,7 +17,7 @@ app.use(express.static('public'));
 server.listen(3000, () => {          // listens to a given port number
     console.log('listening to port # 3000');
     console.log('Conecting...');
-});
+});  
 
 
 console.log('Connecting...');
