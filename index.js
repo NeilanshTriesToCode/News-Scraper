@@ -1,5 +1,8 @@
-// importing modules needed for scraping
-//import request from 'request-promise';  // scraper for static websites
+/* This file acts as the server and receives requests from the client to scrape news 
+   on a topic entered by the user. It then returns news headlines and links to the 
+   client.
+   This file forms the backend of the project.
+*/
 const express = require('express');
 const app = express();
 // creating server
@@ -7,7 +10,7 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server, { cors: { origin: "*"}});
 
 const puppeteer = require('puppeteer'); // scraper for dynamic websites
-const cheerio = require('cheerio');
+const cheerio = require('cheerio');  // library to manipulate HTML content returned after scraping
 
 // Static files: files/content provided by the Server to its Clients
 // static files are usually stored within the public folder
@@ -16,30 +19,25 @@ app.use(express.static('public'));
 // initiate connection
 server.listen(3000, () => {          // listens to a given port number
     console.log('listening to port # 3000');
-    console.log('Conecting...');
+    console.log('Connecting...');
 });  
 
-
-console.log('Connecting...');
 // function to respond to the client
 io.on('connection', (socket) => {
-    console.log('connected');
-    // the event has been named 'request'
-    socket.emit('request', 'hello world');  // send message to the client
-})
+    console.log('connected to socket ' + socket.id);
 
-
-/* var url = 'http://www.google.com';
-var searchFor = document.getElementById('searchText');
-var search_button = document.getElementById('submit');
-
-search_button.addEventListener('click', () => {
-        scrapeNews(url, searchFor);
-}); */
-
+    // receive reply from clien
+    // the event has been named 'request't
+    socket.on('request', (clientReply) =>{
+        console.log('client message: ' + clientReply);       
+        socket.emit('request', clientReply);  
+        console.log('message sent!');
+    });   
+});
 
 // function to perform web-scraping
-function scrapeNews(url, searchFor){
+function scrapeNews(searchFor){
+    const url = 'http://www.google.com';
     puppeteer
         .launch({headless: false})
         .then((browser) => { return browser.newPage() })
@@ -112,31 +110,6 @@ function scrapeNews(url, searchFor){
             console.log(err);
         });
 }   
-
-// function to display news headline and link in HTML
-/*function displayNewsInHTML(headline, link){
-    // creating references for HTML elements
-    var display_box = document.getElementById('display_box');
-    var link_container = document.getElementById('link_container');
-    var news_container = document.createElement('div');
-    var headline_element = document.createElement('p');
-    var link_element = document.createElement('a');
-
-    // adding necessary attributes to the elements
-    news_container.setAttribute('id', 'news_item');
-    headline_element.setAttribute('id', 'headline');
-    link_element.setAttribute('id', 'link');
-    link_container.appendChild(link_element);
- 
-    headline_element.innerHTML = headline;
-    link_element.href = link;
-    link_element.innerHTML = link;
-
-    // displaying news headline and link
-    display_box.appendChild(news_container);
-    news_container.appendChild(headline_element);
-    news_container.appendChild(link_container);
-} */
 
 
 
