@@ -1,17 +1,42 @@
 // importing modules needed for scraping
 //import request from 'request-promise';  // scraper for static websites
+const express = require('express');
+const app = express();
+// creating server
+const server = require('http').createServer(app);
+const io = require('socket.io')(server, { cors: { origin: "*"}});
+
 const puppeteer = require('puppeteer'); // scraper for dynamic websites
 const cheerio = require('cheerio');
 
-window.onload = function(){
-    var url = 'http://www.google.com';
-    var searchFor = document.getElementById('searchText');
-    var search_button = document.getElementById('submit');
+// Static files: files/content provided by the Server to its Clients
+// static files are usually stored within the public folder
+app.use(express.static('public'));
 
-    search_button.addEventListener('click', () => {
+// initiate connection
+server.listen(3000, () => {          // listens to a given port number
+    console.log('listening to port # 3000');
+    console.log('Conecting...');
+});
+
+
+console.log('Connecting...');
+// function to respond to the client
+io.on('connection', (socket) => {
+    console.log('connected');
+    // the event has been named 'request'
+    socket.emit('request', 'hello world');  // send message to the client
+})
+
+
+/* var url = 'http://www.google.com';
+var searchFor = document.getElementById('searchText');
+var search_button = document.getElementById('submit');
+
+search_button.addEventListener('click', () => {
         scrapeNews(url, searchFor);
-    });
-}
+}); */
+
 
 // function to perform web-scraping
 function scrapeNews(url, searchFor){
@@ -89,7 +114,7 @@ function scrapeNews(url, searchFor){
 }   
 
 // function to display news headline and link in HTML
-function displayNewsInHTML(headline, link){
+/*function displayNewsInHTML(headline, link){
     // creating references for HTML elements
     var display_box = document.getElementById('display_box');
     var link_container = document.getElementById('link_container');
@@ -111,7 +136,7 @@ function displayNewsInHTML(headline, link){
     display_box.appendChild(news_container);
     news_container.appendChild(headline_element);
     news_container.appendChild(link_container);
-}
+} */
 
 
 

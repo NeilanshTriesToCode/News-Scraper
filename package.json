@@ -12,7 +12,8 @@
     "cheerio": "^1.0.0-rc.6",
     "puppeteer": "^8.0.0",
     "request": "^2.88.2",
-    "request-promise": "^4.2.6"
+    "request-promise": "^4.2.6",
+    "socket.io": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
