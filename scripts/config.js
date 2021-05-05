@@ -1,9 +1,0 @@
-// config files
-
-requirejs.config({
-
-
-
-
-    
-})
