@@ -30,18 +30,18 @@ io.on('connection', (socket) => {
     // the event has been named 'get news info'
     socket.on('get news info', (clientReply) =>{
         console.log('client message: ' + clientReply);    // DEBUG     
-        socket.emit('get news info', clientReply);  
+          
         scrapeNews(clientReply).then((data) => {
             console.log('accessing then part of scrapeNews() function call');
             console.log(data);
+            socket.emit('get news info', data);
         });
         console.log('message to client sent sent!');     // DEBUG
     });   
 });
 
-// function to perform web-scraping
+// function to perform web-scraping. Function returns a promise
 function scrapeNews(searchFor){
-
     return new Promise((resolve, reject) => {
         const url = 'http://www.google.com';
         puppeteer
@@ -52,7 +52,7 @@ function scrapeNews(searchFor){
                     await page.setViewport({ width: 1920, height: 1080 });   // open browser window to show puppeteer's actions
                     // await page.focus('.gLFyf.gsfi');     // focus on the search bar
                     await page.click('.gLFyf.gsfi');     // click on the search bar
-                    await page.keyboard.type(searchFor + 'news');      // search for the given term
+                    await page.keyboard.type(searchFor + ' news');      // search for the given term
                     await page.keyboard.press('Enter');   
                     await page.waitFor(3000);  
                    /* var html = await page.content(); 
@@ -77,7 +77,7 @@ function scrapeNews(searchFor){
             .then(async (html) => {
                 // work with html content to retrieve news headlines
                 const $ = cheerio.load(html);
-                var for_links = $('div > .nChh6e.DyOREb > div > div > .dbsr').children();  // object containing element for link and its children
+                var for_links = $('.nChh6e.DyOREb > div > .dbsr').children();  // object containing element for link and its children
                 //console.log(for_links.length);
                 return for_links;  // returns array containing two objects containing html info about news cards (healdines and links)
             }) 
@@ -99,7 +99,10 @@ function scrapeNews(searchFor){
                 // creating a 2D array
                 var items = [];                
                 for(var i = 0; i < news_links.length; i++){
-                    var news_h = [];
+                    var news_h = {
+                            'headline' : '',
+                            'link' : ''
+                            };
                     if( news_links[i]['name'].localeCompare('a') == 0){
                         var link = news_links[i]['attribs']['href'];
                         var news_items_container = news_links[i]['children'][0];
@@ -107,9 +110,9 @@ function scrapeNews(searchFor){
                         var headline_container = news_text['children'][1];
                         var headline = headline_container['children'][0]['data'];
             
-                        news_h.push(headline);
-                        news_h.push(link);
-                        items.push(news_h);    // array to contain sub arrays of news headlines and links
+                        news_h.headline = headline;
+                        news_h.link = link;
+                        items.push(news_h);    // array to contain sub-objects of news headlines and links
                         console.log(headline);
                         console.log('     Link: ' + link);
                         console.log('\n');                  
