@@ -10,24 +10,23 @@ window.onload = function(){
     // event listener for button
     search_button.addEventListener('click', () => {
         // once connection with the server is established, do the following
-        socket.on('connection', () => {
-            console.log('connected to server');
-            socket.emit('request', 'greetings server!');
-            console.log('message sent');
+            socket.emit('get news info', searchFor.value);
+            console.log('message sent');       // DEBUG
+
+            // event to handle reply from the server
+            // the event has been named 'get news info'
+            socket.on('get news info', (serverReply) => {
+            console.log('server message: ' + serverReply);
+            // send message to the server
+            //socket.emit('get news info', 'hello server');
+    });  
             
               
-        });
     
        
 
     }); 
-     // event to handle reply from the server
-     // the event has been named 'request'
-    socket.on('request', (serverReply) => {
-        console.log('server message: ' + serverReply);
-        // send message to the server
-        socket.emit('request', 'hello server');
-    });  
+     
 
    
 }
