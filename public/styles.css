@@ -1,7 +1,7 @@
 /* styles for the project */
 
 html {
-    background-color: rgb(253, 238, 215);
+    background-color: rgb(253, 236, 211);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px
 }
@@ -10,6 +10,11 @@ body {
    align-items: center;
    justify-content: center;
    border: 1pt solid grey
+}
+
+img {
+    height: 20px;
+    width: 20px;
 }
 
 p {
@@ -35,7 +40,7 @@ p {
 }
 
 /* child div element containing search input and search button */
-#search_input {
+#search_input { 
     border: 1pt solid black;
     margin-bottom: 80px;
     margin-left: auto;
@@ -44,8 +49,9 @@ p {
 
 /* text input element to enter text to search */
 #searchText {
-    border: none;
-    border-bottom: 1pt solid rgb(88, 201, 230);
+    height: 30px; 
+    border: 1px solid rgb(161, 164, 165);
+    border-radius: 10px;
 }
 
 /* div element containing news headline and link */
