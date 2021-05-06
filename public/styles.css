@@ -1,14 +1,12 @@
 /* styles for the project */
 
 html {
-    background-color: rgb(253, 236, 211);
+    background-color: rgb(250, 248, 244);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px
 }
 
 body {
-   align-items: center;
-   justify-content: center;
    border: 1pt solid grey
 }
 
@@ -29,13 +27,13 @@ p {
     box-sizing: border-box;    
     border: 1pt solid  grey;
     border-radius: 15px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* search div containing heading, input and search button */
 #search {
     margin-top: 70px;
-    font-size: 30px;
+    font-size: 40px;
     align-items: center;
 }
 
@@ -50,15 +48,18 @@ p {
 /* text input element to enter text to search */
 #searchText {
     height: 30px; 
+    width: 50%;
     border: 1px solid rgb(161, 164, 165);
     border-radius: 10px;
+    margin-bottom: 5px;
 }
 
 /* div element containing news headline and link */
 #news_item {
     background-color: white;
     margin: 10px;
-    border: 1pt solid black;
+    border: 1pt solid rgb(114, 112, 112);
+    box-shadow: rgb(90, 94, 95);
     border-radius: 10px;
     text-align: start;
 }
