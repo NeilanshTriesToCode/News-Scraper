@@ -1,25 +1,69 @@
 /* styles for the project */
 
-html{
-    background-color: blanchedalmond;
+html {
+    background-color: rgb(253, 238, 215);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px
 }
 
-body{
+body {
    align-items: center;
    justify-content: center;
+   border: 1pt solid grey
 }
 
-div {
-    margin-left: 500px;
-    width: 500px;
+p {
+    margin: 5px;
+}
+/* div elements containing sub-divs or other items */
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
     text-align: center;
     box-sizing: border-box;    
     border: 1pt solid  grey;
     border-radius: 15px;
+    margin-top: 20px;
 }
 
-#heading{
+/* search div containing heading, input and search button */
+#search {
+    margin-top: 70px;
     font-size: 30px;
+    align-items: center;
+}
+
+/* child div element containing search input and search button */
+#search_input {
+    border: 1pt solid black;
+    margin-bottom: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* text input element to enter text to search */
+#searchText {
+    border: none;
+    border-bottom: 1pt solid rgb(88, 201, 230);
+}
+
+/* div element containing news headline and link */
+#news_item {
+    background-color: white;
+    margin: 10px;
+    border: 1pt solid black;
+    border-radius: 10px;
+    text-align: start;
+}
+
+/* element to display news */
+#headline {
+    font-size: 25px;
+}
+
+/*  element to display link */
+#link_container {
+    font-size: 20px;
+    font-style: italic;
 }
