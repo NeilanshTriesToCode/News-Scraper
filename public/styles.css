@@ -1,1 +1,25 @@
 /* styles for the project */
+
+html{
+    background-color: blanchedalmond;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px
+}
+
+body{
+   align-items: center;
+   justify-content: center;
+}
+
+div {
+    margin-left: 500px;
+    width: 500px;
+    text-align: center;
+    box-sizing: border-box;    
+    border: 1pt solid  grey;
+    border-radius: 15px;
+}
+
+#heading{
+    font-size: 30px;
+}
