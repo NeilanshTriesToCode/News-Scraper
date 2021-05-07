@@ -1,13 +1,16 @@
 /* styles for the project */
 
 html {
-    background-color: rgb(250, 248, 244);
+    background-color: rgb(206, 214, 216);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px
 }
 
-body {
-   border: 1pt solid grey
+/* submit button */
+#submit {
+    height: 30px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 img {
@@ -25,24 +28,22 @@ p {
     width: 45%;
     text-align: center;
     box-sizing: border-box;    
-    border: 1pt solid  grey;
     border-radius: 15px;
     margin-bottom: 20px;
 }
 
 /* search div containing heading, input and search button */
 #search {
-    margin-top: 70px;
+    margin-top: 50px;
     font-size: 40px;
     align-items: center;
 }
 
 /* child div element containing search input and search button */
 #search_input { 
-    border: 1pt solid black;
-    margin-bottom: 80px;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 5px;
 }
 
 /* text input element to enter text to search */
@@ -51,26 +52,42 @@ p {
     width: 50%;
     border: 1px solid rgb(161, 164, 165);
     border-radius: 10px;
-    margin-bottom: 5px;
 }
 
-/* div element containing news headline and link */
-#news_item {
+/* div element containing news items */
+#news_card {
     background-color: white;
     margin: 10px;
-    border: 1pt solid rgb(114, 112, 112);
     box-shadow: rgb(90, 94, 95);
+    border: 1px solid rgb(184, 181, 181);
     border-radius: 10px;
     text-align: start;
 }
 
-/* element to display news */
+/* sub-element inside #news_card containing both headline and link */
+#news_items {
+    text-decoration: none;
+}
+
+#news_card:hover {
+    background-color: rgb(233, 233, 233);  
+    border: 1px solid rgb(104, 102, 102);
+    border-radius: 10px; 
+}
+
+/* element to display news headlines */
 #headline {
-    font-size: 25px;
+    color: black;
+    font-size: 20px;
 }
 
 /*  element to display link */
-#link_container {
-    font-size: 20px;
+#link {
+    color: rgb(49, 170, 218);
+    font-size: 18px;
     font-style: italic;
+}
+
+#link:visited {
+    color: rgb(140, 58, 216);
 }

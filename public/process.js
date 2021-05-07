@@ -34,25 +34,29 @@ window.onload = function(){
 function displayNewsInHTML(headline, link){
     // creating references for HTML elements
     var display_box = document.getElementById('display_box');
-    var news_container = document.createElement('div');
+    var news_card = document.createElement('div');
+    var news_items = document.createElement('a');
     var headline_element = document.createElement('p');
     var link_container = document.createElement('p');
     var link_element = document.createElement('a');
 
     // adding necessary attributes to the elements
-    news_container.setAttribute('id', 'news_item');
+    news_card.setAttribute('id', 'news_card');
+    news_items.setAttribute('id', 'news_items');
     headline_element.setAttribute('id', 'headline');
     link_element.setAttribute('id', 'link');
     link_container.setAttribute('id', 'link_container');
     link_container.appendChild(link_element);
  
+    news_items.href = link;
     headline_element.innerHTML = headline;
     link_element.href = link;
     link_element.innerHTML = link;
 
     // displaying news headline and link
-    display_box.appendChild(news_container);
-    news_container.appendChild(headline_element);
-    news_container.appendChild(link_container);
+    display_box.appendChild(news_card);
+    news_card.appendChild(news_items);
+    news_items.appendChild(headline_element);
+    news_items.appendChild(link_container);
 } 
 

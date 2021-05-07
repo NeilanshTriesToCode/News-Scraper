@@ -77,7 +77,7 @@ function scrapeNews(searchFor){
             .then(async (html) => {
                 // work with html content to retrieve news headlines
                 const $ = cheerio.load(html);
-                var for_links = $('.nChh6e.DyOREb > div > .dbsr').children();  // object containing element for link and its children
+                var for_links = $('.dbsr').children();  // object containing element for link and its children
                 //console.log(for_links.length);
                 return for_links;  // returns array containing two objects containing html info about news cards (healdines and links)
             }) 
