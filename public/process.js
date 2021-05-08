@@ -6,6 +6,7 @@ const socket = io('http://localhost:3000'); // socket to connect to the server
 window.onload = function(){
     var searchFor = document.getElementById('searchText');
     var search_button = document.getElementById('submit');
+    var result_status = document.getElementById('result_status');
 
     // event listener for button
     search_button.addEventListener('click', () => {
@@ -13,10 +14,20 @@ window.onload = function(){
         socket.emit('get news info', searchFor.value);
         console.log('request to server sent.');     // DEBUG
 
+        // clearly previous news cards, if any
+        var display_box = document.getElementById('display_box');
+        removeChildNodes(display_box);
+
+        // displaying "Loading results" to notify user
+        result_status.innerHTML = 'Loading results...';
+
         // event to handle reply from the server
         // the event has been named 'get news info'
         socket.on('get news info', (serverReply) => {
             console.log('server message: ' + serverReply);  // DEBUG
+
+            // displaying "Results for 'topic' to notify the user"
+            result_status.innerHTML = 'Results for "' + searchFor.value + '"';
 
             /* serverReply is an array with each element being an object
             consisting of news headline and link (from a news card retrieved from scraping)
@@ -28,6 +39,14 @@ window.onload = function(){
              }
         });     
     });   
+}
+
+// function to remove child nodes 
+// this function is needed to remove previous news cards after the user makes a new search
+function removeChildNodes(parent){
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild);
+    }
 }
 
 // function to display news headline and link in HTML

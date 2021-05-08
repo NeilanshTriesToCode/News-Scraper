@@ -56,9 +56,20 @@ p {
     border-radius: 10px;
 }
 
+/* div element showing results status */
+#display_status {
+    width: 45%;
+    font-style: italic;
+    text-align: start;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 25px;
+}
+
 /* div element containing news items */
 #news_card {
     background-color: white;
+    width: 100%;
     margin: 10px;
     box-shadow: rgb(90, 94, 95);
     border: 1px solid rgb(184, 181, 181);
@@ -86,10 +97,28 @@ p {
 /*  element to display link */
 #link {
     color: rgb(49, 170, 218);
-    font-size: 18px;
+    font-size: 16px;
     font-style: italic;
 }
 
 #link:visited {
     color: rgb(140, 58, 216);
+}
+
+/* responsive design for restored-down window */
+@media (max-width: 1000px ) {
+    .container {
+        margin-left: 20px;
+        margin-right: auto;
+    }
+
+    #headline {
+        font-size: 16px;
+    }
+
+    #link {
+        font-size: 14px;
+    }
+
+    
 }

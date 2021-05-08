@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
           
         scrapeNews(clientReply).then((data) => {
             console.log('accessing then part of scrapeNews() function call');
-            console.log(data);
+            console.log(data);     // DEBUG
             socket.emit('get news info', data);
         });
         console.log('message to client sent sent!');     // DEBUG
@@ -45,13 +45,13 @@ function scrapeNews(searchFor){
     return new Promise((resolve, reject) => {
         const url = 'http://www.google.com';
         puppeteer
-            .launch({headless: false})
+            .launch({headless: true})  // set headless to "false" to see Puppeteer's actions on the browser, and which elements are clicked on 
             .then((browser) => { 
                 return browser.newPage(); 
             })
             .then(async (page) => { 
                 return page.goto(url).then(async () =>{
-                    // await page.setViewport({ width: 1920, height: 1080 });   // open browser window to show puppeteer's actions (for DEBUGGING)
+                    await page.setViewport({ width: 1920, height: 1080 });   // open browser window to show puppeteer's actions (for DEBUGGING)
                     // await page.focus('.gLFyf.gsfi');     // focus on the search bar
                     await page.click('.gLFyf.gsfi');     // click on the search bar
                     await page.keyboard.type(searchFor + ' news');      // search for the given term
