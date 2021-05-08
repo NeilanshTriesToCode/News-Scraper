@@ -11,7 +11,7 @@ window.onload = function(){
     search_button.addEventListener('click', () => {
         // once connection with the server is established, do the following
         socket.emit('get news info', searchFor.value);
-        console.log('message sent');     // DEBUG
+        console.log('request to server sent.');     // DEBUG
 
         // event to handle reply from the server
         // the event has been named 'get news info'

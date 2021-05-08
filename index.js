@@ -7,7 +7,7 @@ const express = require('express');
 const app = express();
 // creating server
 const server = require('http').createServer(app);
-const io = require('socket.io')(server, { cors: { origin: "*"}});
+const io = require('socket.io')(server, { cors: { origin: "*"}});  // to avoid CORS errors
 
 const puppeteer = require('puppeteer'); // scraper for dynamic websites
 const cheerio = require('cheerio');  // library to manipulate HTML content returned after scraping
@@ -46,29 +46,18 @@ function scrapeNews(searchFor){
         const url = 'http://www.google.com';
         puppeteer
             .launch({headless: false})
-            .then((browser) => { return browser.newPage() })
+            .then((browser) => { 
+                return browser.newPage(); 
+            })
             .then(async (page) => { 
                 return page.goto(url).then(async () =>{
-                    await page.setViewport({ width: 1920, height: 1080 });   // open browser window to show puppeteer's actions
+                    // await page.setViewport({ width: 1920, height: 1080 });   // open browser window to show puppeteer's actions (for DEBUGGING)
                     // await page.focus('.gLFyf.gsfi');     // focus on the search bar
                     await page.click('.gLFyf.gsfi');     // click on the search bar
                     await page.keyboard.type(searchFor + ' news');      // search for the given term
                     await page.keyboard.press('Enter');   
                     await page.waitFor(3000);  
-                   /* var html = await page.content(); 
-                    const $ = cheerio.load(html);
-                    var nav_links = $('.MUFPAc > .hdtb-mitem').children();  // get top nav link elements after Google search
-                    
-                   
-                     - nav_link returns an object list of objects. 
-                     - Each object inside the object-list is an HTML link node/element.
-                     - These links point to different pages of the search and 
-                       are in this order as seen on the Google page: [All  Shopping  Images  News  Videos  More]
-                     - We'll select on the link node/element from the object-list which directs to the News page, 
-                       which is at index 4 of the object list.
-                    */
-                    //console.log(nav_links[4]['children'][1]['data']);
-                    await page.click('.Q2MMlc');     
+                    await page.click('.Q2MMlc');       // click on button to access News on the topic
                     // page.screenshot({path: 'sc.png'});            // DEBUG
                     await page.waitFor(3000);   
                     return page.content();         // returns html content of the page
@@ -82,7 +71,7 @@ function scrapeNews(searchFor){
                 return for_links;  // returns array containing two objects containing html info about news cards (healdines and links)
             }) 
             .then(async (news_links) => {
-               /*  BASIC STRUCTURE OF A NEWS-CARD DOM:
+               /*  BASIC STRUCTURE OF A NEWS-CARD element:
                  - Each news item is inside an HTML element called 'g-card'
                  - Every content (news headline, news image, sub headline, date, etc.) is inside a link element, which is a child of 'g-card'
                  - This function receives an object which contains the list of all the link elements inside all 'g-card's
@@ -124,9 +113,7 @@ function scrapeNews(searchFor){
             .catch((err) => {
                 console.log(err);
             });
-
-    });
-   
+    });  
 }   
 
 

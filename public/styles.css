@@ -1,4 +1,4 @@
-/* styles for the project */
+/* styles for the main.html */
 
 html {
     background-color: rgb(206, 214, 216);
@@ -8,7 +8,8 @@ html {
 
 /* submit button */
 #submit {
-    height: 30px;
+    height: 35px;
+    width: 35px;
     border-radius: 5px;
     margin-bottom: 10px;
 }
@@ -48,8 +49,9 @@ p {
 
 /* text input element to enter text to search */
 #searchText {
-    height: 30px; 
-    width: 50%;
+    font-size: 20px;
+    height: 40px; 
+    width: 70%;
     border: 1px solid rgb(161, 164, 165);
     border-radius: 10px;
 }
