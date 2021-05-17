@@ -6,12 +6,22 @@ html {
     font-size: 20px
 }
 
+#heading {
+    color: rgb(233, 171, 56);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
 /* submit button */
 #submit {
     height: 35px;
     width: 35px;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+
+#submit:hover {
+    border: 2pt solid black;
 }
 
 img {
