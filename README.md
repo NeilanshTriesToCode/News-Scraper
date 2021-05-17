@@ -1,6 +1,6 @@
 # News-Scraper
 
-### Overview
+## Overview
 - This project implements a Web Scraper that scrapes for news, based on the topic entered by the user.
 - The user types a topic, and the scraper returns latest news headlines and links to the articles.
 - News scraped using Google.
@@ -27,8 +27,9 @@
 
 ## Running the code
 - Head on to the terminal and locate to the directory where the repository is saved/cloned. Then run ***node index.js***.
-- On executing the code, open the HTML file in a web browser. The code running in the terminal would notify by sayin "Connected to socket" followed by the socket's ID.
+- On executing the code, open the HTML file in a web browser. The code running in the terminal would notify by saying "Connected to socket" followed its ID.
 - You're good to go! Type in the topic for the news, and wait a few seconds for the results. There you'll have it!
+- Follow along the code for comments for better understanding of how it works behind the scenes.
 
 ## References
 - https://socket.io/
