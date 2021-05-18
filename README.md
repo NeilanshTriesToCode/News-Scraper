@@ -37,21 +37,23 @@
 ![image](https://user-images.githubusercontent.com/60074628/118596936-a89b6d80-b7c9-11eb-897a-219c0d547d25.png)
 
 2. This is what the HTML page looks like:
-![image](https://user-images.githubusercontent.com/60074628/118597054-ccf74a00-b7c9-11eb-8cba-541c940a2be2.png)
+![image](https://user-images.githubusercontent.com/60074628/118598975-7c352080-b7cc-11eb-9215-c263caa84c9a.png)
 
 3. Search for a topic. Result might take a few seconds to load.
-![image](https://user-images.githubusercontent.com/60074628/118597296-21022e80-b7ca-11eb-9601-d7dbecd66f99.png)
+![image](https://user-images.githubusercontent.com/60074628/118599034-92db7780-b7cc-11eb-994c-4cb4ed7a2073.png)
 
 4. This is what the results page looks like:
-![image](https://user-images.githubusercontent.com/60074628/118597493-5eff5280-b7ca-11eb-9cff-6534d58acd7d.png)
+![image](https://user-images.githubusercontent.com/60074628/118599148-be5e6200-b7cc-11eb-8219-464b16b78049.png)
 
-5. Clicking on a new item would take the user to the article's page/website. This is where the user was directed on clicking on the first new item from the previous screenshot:
-![image](https://user-images.githubusercontent.com/60074628/118597695-a685de80-b7ca-11eb-887e-aa258d37b900.png)
+5. Clicking on a new item would take the user to the article's page/website.
+![image](https://user-images.githubusercontent.com/60074628/118599419-1bf2ae80-b7cd-11eb-9569-e544c254ff71.png)
 
-## Tips for understanding the code better:
+## Tips for better understanding:
+- Go through the documentation/tutorials for the APIs.
 - Follow along the code for comments for better understanding of how it works behind the scenes. 
+- Check the terminal console where the code is executed (for **index.js or server-file**), and the browser console (for **process.js or client file**) to keep a track of events taking place in server and client files during execution.
 - Inspecting the destination webpage ***(Ctrl+Shitf+I)*** is highly recommended to better understand its HTML structure.
-- Set the **headless** atttribute of **Puppeteer** to ***false*** to see its actions, and which elements are clicked on.
+- Set the **headless** atttribute of **Puppeteer** to ***false*** to see its actions in the browser, and which elements are clicked on. [Find the link to the line of code here] (https://github.com/NeilanshTriesToCode/News-Scraper/blob/a57d23c995c3d3ef83f06a74e9b2b2d6ed060488/index.js#L48)
 
 ## References
 - https://socket.io/
