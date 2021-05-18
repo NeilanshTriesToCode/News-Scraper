@@ -1,4 +1,4 @@
-# News-Scraper
+# JavaScript News-Scraper
 
 ## Overview
 - This project implements a Web Scraper that scrapes for news, based on the topic entered by the user.
