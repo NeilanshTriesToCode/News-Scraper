@@ -33,8 +33,25 @@
 - Follow along the code for comments for better understanding of how it works behind the scenes. Inspecting the destination webpage ***(Ctrl+Shitf+I)*** is highly recommended to better understand its HTML structure.
 
 ## Screenshots
-![image](https://user-images.githubusercontent.com/60074628/118596730-63773b80-b7c9-11eb-8d8e-8faf7eebf46f.png)
+1. Running code on console. User would be notified after the HTML page is opened in the browser:
+![image](https://user-images.githubusercontent.com/60074628/118596936-a89b6d80-b7c9-11eb-897a-219c0d547d25.png)
 
+2. This is what the HTML page looks like:
+![image](https://user-images.githubusercontent.com/60074628/118597054-ccf74a00-b7c9-11eb-8cba-541c940a2be2.png)
+
+3. Search for a topic. Result might take a few seconds to load.
+![image](https://user-images.githubusercontent.com/60074628/118597296-21022e80-b7ca-11eb-9601-d7dbecd66f99.png)
+
+4. This is what the results page looks like:
+![image](https://user-images.githubusercontent.com/60074628/118597493-5eff5280-b7ca-11eb-9cff-6534d58acd7d.png)
+
+5. Clicking on a new item would take the user to the article's page/website. This is where the user was directed on clicking on the first new item from the previous screenshot:
+![image](https://user-images.githubusercontent.com/60074628/118597695-a685de80-b7ca-11eb-887e-aa258d37b900.png)
+
+## Tips for understanding the code better:
+- Follow along the code for comments for better understanding of how it works behind the scenes. 
+- Inspecting the destination webpage ***(Ctrl+Shitf+I)*** is highly recommended to better understand its HTML structure.
+- Set the **headless** atttribute of **Puppeteer** to ***false*** to see its actions, and which elements are clicked on.
 
 ## References
 - https://socket.io/
