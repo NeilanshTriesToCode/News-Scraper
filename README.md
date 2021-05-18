@@ -59,7 +59,7 @@
 - Follow along the code for comments for better understanding of how it works behind the scenes. 
 - Check the terminal console where the code is executed (for **index.js or server-file**), and the browser console (for **process.js or client file**) to keep a track of events taking place in server and client files during execution.
 - Inspecting the destination webpage ***(Ctrl+Shitf+I)*** is highly recommended to better understand its HTML structure.
-- Set the **headless** atttribute of **Puppeteer** to ***false*** to see its actions in the browser, and which elements are clicked on. [Find the link to the line of code here] (https://github.com/NeilanshTriesToCode/News-Scraper/blob/a57d23c995c3d3ef83f06a74e9b2b2d6ed060488/index.js#L48)
+- Set the **headless** atttribute of **Puppeteer** to ***false*** to see its actions in the browser, and which elements are clicked on. [Find the link to the line of code here](https://github.com/NeilanshTriesToCode/News-Scraper/blob/a57d23c995c3d3ef83f06a74e9b2b2d6ed060488/index.js#L48)
 
 ## References
 - https://socket.io/
