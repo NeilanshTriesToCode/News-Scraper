@@ -42,17 +42,17 @@
 3. Search for a topic. Result might take a few seconds to load.
 ![image](https://user-images.githubusercontent.com/60074628/118599788-b4892e80-b7cd-11eb-8771-de8c1864f978.png)
 
-4. This is what the results page looks like:
+4. This is what the results page looks like:<br>
 ![image](https://user-images.githubusercontent.com/60074628/118599911-e0a4af80-b7cd-11eb-9b5e-2dffa0b4fdc0.png)
 
 5. Clicking on a new item would take the user to the article's page/website.
 ![image](https://user-images.githubusercontent.com/60074628/118600024-0631b900-b7ce-11eb-9e01-d68dbf412dc5.png)
 
 6. Terminal console (for server-file/**index.js**):
-![image](https://user-images.githubusercontent.com/60074628/118600268-658fc900-b7ce-11eb-813e-02d2a2247210.png)
+![image](https://user-images.githubusercontent.com/60074628/118600889-36c62280-b7cf-11eb-9e13-2e17db56dcaa.png)
 
-7. Browser console (for client-file/**process.js**):
-![image](https://user-images.githubusercontent.com/60074628/118600539-c3bcac00-b7ce-11eb-984b-7780a8d2b3f0.png)
+7. Browser console (for client-file/**process.js**):<br>
+![image](https://user-images.githubusercontent.com/60074628/118600743-04b4c080-b7cf-11eb-98ed-cb321582388f.png)
 
 ## Tips for better understanding:
 - Go through the documentation/tutorials for the APIs.
