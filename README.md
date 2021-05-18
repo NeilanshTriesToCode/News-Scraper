@@ -37,7 +37,7 @@
 ![image](https://user-images.githubusercontent.com/60074628/118596936-a89b6d80-b7c9-11eb-897a-219c0d547d25.png)
 
 2. This is what the HTML page looks like:
-![image](https://user-images.githubusercontent.com/60074628/118598975-7c352080-b7cc-11eb-9215-c263caa84c9a.png)
+![image](https://user-images.githubusercontent.com/60074628/118601901-a9cf9900-b7cf-11eb-9a99-c0b594e6d09d.png)
 
 3. Search for a topic. Result might take a few seconds to load.
 ![image](https://user-images.githubusercontent.com/60074628/118599788-b4892e80-b7cd-11eb-8771-de8c1864f978.png)
