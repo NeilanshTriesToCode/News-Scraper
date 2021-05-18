@@ -33,10 +33,10 @@
 - Follow along the code for comments for better understanding of how it works behind the scenes. Inspecting the destination webpage ***(Ctrl+Shitf+I)*** is highly recommended to better understand its HTML structure.
 
 ## Screenshots
-1. Running code on console. User would be notified after the HTML page is opened in the browser:<br>
+1. Running code on console. User would be notified after the HTML page is opened in the browser:
 ![image](https://user-images.githubusercontent.com/60074628/118596936-a89b6d80-b7c9-11eb-897a-219c0d547d25.png)
 
-2. This is what the HTML page looks like:
+2. This is what the HTML page looks like:<br>
 ![image](https://user-images.githubusercontent.com/60074628/118601901-a9cf9900-b7cf-11eb-9a99-c0b594e6d09d.png)
 
 3. Search for a topic. Result might take a few seconds to load.
